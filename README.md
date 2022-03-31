@@ -5,6 +5,11 @@ Packman-like game made by using IPC, curses library and C programming language
 ![server1](server1.png) ![server2](server2.png) ![server3](server3.png)
 ### Clients
 ![client1](client1.png) ![client2](client2.png) ![client3](client3.png)
+## Execute Commands for Linux
+* `make clean` to clean up
+* `make` to compile must be done before running the game
+* `./srv` to run server
+* `./cln` to run the client in another console (max 4)
 ## Server
 * type `b` to generate new beast
 * type `c`, `t` or `T` to generate new type of treasure
