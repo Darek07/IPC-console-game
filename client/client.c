@@ -43,7 +43,7 @@ int main() {
     else if (i == 3) { fifo[0] = PL3_F_WR; fifo[1] = PL3_F_R; }
     else if (i == 4) { fifo[0] = PL4_F_WR; fifo[1] = PL4_F_R; }
 
-    fd[1] = open(fifo[1], O_RDONLY | O_CLOEXEC);
+    fd[1] = open(fifo[1], O_RDONLY);
     if (fd[1] == -1) {
         printf("Couldn't open fifo %s\n", fifo[1]);
         return 1;

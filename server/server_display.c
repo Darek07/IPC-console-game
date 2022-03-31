@@ -5,6 +5,8 @@
 #include "server_display.h"
 #include "server_objects.h"
 
+//! WARNING: CHANGE PATH HERE
+#define MAZEFILE "./server/maze"
 
 WINDOW *wmap;
 WINDOW *winfo;
@@ -79,9 +81,9 @@ void update_info(player_t players[MAX_PLAYERS], int round) {
 
 void init_map() {
     // load map
-    char *filename = "../server/maze";
+    char *filename = MAZEFILE;
     FILE *fmaze = fopen(filename, "r");
-    if (!fmaze) return; // TODO: error
+    if (!fmaze) return;
 
     while (fgetc(fmaze) != '\n')
         m_width++;
@@ -114,7 +116,7 @@ void init_info() {
 
     mvwprintw(winfo, ++y, cols[0], "Server's PID: %d", getpid());
     mvwprintw(winfo, ++y, cols[0], " Campsite X/Y: %d/%d", CAMPSITE_X, CAMPSITE_Y);
-    mvwprintw(winfo, ++y, cols[0], " Round number: %d", 0); // TODO: round
+    mvwprintw(winfo, ++y, cols[0], " Round number: %d", 0);
 
     y += 3;
 
@@ -152,7 +154,7 @@ void display_legend() {
 
 void init_display() {
     initscr();
-    cbreak();// TODO: don't know why
+    cbreak();
     noecho();
     curs_set(0);
 
